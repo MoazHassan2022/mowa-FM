@@ -1,9 +1,9 @@
 function[signal, t, fSignal, freq, Fs] = readSignal(filename)
     [inputSignal, fs] = audioread(filename);
-    Fs = 53040; % max sampling freq
+    Fs = 53040; % making all the sampling frequencies with the same one 
+    % to make the same lenth of t, this value is obtained by mapping
     signal = inputSignal(:,1);
     signal = appendZeros(signal, 1060800); % make all the signals with the same length (max length)
-    % mapping to make the signal and the carrier the same size
     dt = 1/Fs;
     n = length(signal);
     stopTime = 20;
